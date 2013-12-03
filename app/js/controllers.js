@@ -3,9 +3,9 @@
 /* Controllers */
 
 angular.module('visitsApp.controllers', []).
-  controller('MyCtrl1', [function() {
+  controller('fullListCtrl', [function() {
 
   }])
-  .controller('MyCtrl2', [function() {
+  .controller('personDetailsCtrl', [function() {
 
   }]);

@@ -1,2 +1,2 @@
-visits-manager
+Visits Manager
 ==============
