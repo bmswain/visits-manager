@@ -10,13 +10,16 @@ angular.module('visitsApp', [
   'visitsApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/list', {
-    templateUrl: 'partials/full-list.html',
-    controller: 'fullListCtrl'
-  });
-  $routeProvider.when('/details/:personid', {
-    templateUrl: 'partials/person-details.html',
-    controller: 'personDetailsCtrl'
-  });
-  $routeProvider.otherwise({redirectTo: '/list'});
+  $routeProvider.
+    when('/list', {
+      templateUrl: 'partials/full-list.html',
+      controller: 'fullListCtrl'
+    }).
+    when('/person/:id', {
+      templateUrl: 'partials/person-details.html',
+      controller: 'personDetailsCtrl'
+    }).
+    otherwise({
+      redirectTo: '/list'
+    });
 }]);
