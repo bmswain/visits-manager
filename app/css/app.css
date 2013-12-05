@@ -1,4 +1,184 @@
 /* app css stylesheet */
+.visits-app {
+  background-image: url("../img/noise-bg.jpg");
+  margin: 20px 20px 20px;
+}
+.visits-app .row {
+  margin-bottom: 10px;
+}
+.visits-app ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.visits-app h2 {
+  color: #555;
+  margin-bottom: 20px;
+  font-weight: 100;
+  font-size: 36px;
+}
+.visits-app label {
+  font-weight: normal;
+}
+.visits-app .col-nopad {
+  padding: 0;
+}
+.visits-app .breadcrumb {
+  background-color: #333;
+  min-width: 50px;
+  max-width: 250px;
+}
+.visits-app .breadcrumb > .active {
+  color: #BBBBBB;
+}
+.visits-app .breadcrumb a {
+  color: #FFF;
+  font-weight: bold;
+}
+
+
+/* Navbar */
+.navbar-default {
+  background-color: #FFF;
+}
+
+/* List View, table styles */
+table.table-bordered {
+  border: 1px solid #555555;
+}
+table.persons {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.full-list table > thead > tr > th {
+  background-color: #333;
+  padding: 8px 5px;
+  color: #FFF;
+  font-weight: 200;
+  font-size: 22px;
+}
+table.table-condensed td,
+table.table-condensed thead {
+  cursor: pointer;
+}
+table .male   { background-color: #D9EDF7; }
+table .female { background-color: #F2DEDE; }
+
+td.visits {
+  max-width: 40%;
+  min-width: 35%;
+}
+table a {
+  color: #005580;
+}
+.input-group .form-control.search {
+  width: 30%;
+}
+td.visits li date {
+  font-weight: bold;
+  font-size: 90%
+}
+
+
+/* Rounded corner table */
+.table-curved {
+    border-collapse: separate;
+}
+.table-curved {
+ /*   border: solid #ccc 1px;*/
+    border-radius: 4px;
+    border-left:0px;
+}
+/*.table-curved td, .table-curved th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}*/
+table.table-curved > thead {
+  margin-bottom: 8px;
+  cursor: default;
+}
+table.table-curved > thead > tr > th {
+  border-top: none;
+  border-bottom: none;
+  padding: 8px 0 8px 10px;
+  color: #BBB;
+  font-weight: normal;
+  background-color: #333;
+}
+.table-curved th:first-child {
+  border-radius: 4px 0 0 4px;
+}
+.table-curved th:last-child {
+  border-radius: 0 4px 4px 0;
+}
+.table-curved th:only-child{
+  border-radius: 4px 4px 0 0;
+}
+.table-curved tr:last-child td:first-child {
+    border-radius: 0 0 0 4px;
+}
+.table-curved tr:last-child td:last-child {
+    border-radius: 0 0 4px 0;
+}
+table.table-curved > tbody > tr > td {
+  border: none;
+  padding-left: 0;
+  cursor: default;
+}
+table.table-curved > tbody > tr > td.comments {
+  padding-right: 0;
+}
+table.table-curved > tbody > tr:first-child {
+  padding-top: 18px;
+}
+
+
+/* Person Details */
+.visits-app .person-details-section {
+  margin: 0px 0 0 0;
+}
+.person-details-section .input-group-addon {
+  width: 80px;
+  text-align: left;
+}
+.visits-app .person-details-form {
+  padding-left: 0;
+  border-right: 1px solid #dfdfdf;
+}
+.male .input-group-addon   { background-color: #D9EDF7; }
+.female .input-group-addon { background-color: #F2DEDE; }
+
+.person-details-section .visits-table .input-group-addon {
+  width: auto;
+  background-color: #FFF;
+}
+.atLastKnownAddress input[type="checkbox"],
+.active input[type="checkbox"] {
+  margin-left: 10px;
+}
+.person-details td.date     { width: 30%; }
+.person-details td.comments { width: 70% }
+
+.breadcrumb .glyphicon {
+  color: #FFF;
+  margin: 2px 3px 0 0;
+  font-size: 12px;
+}
+
+
+/* datepicker */
+.datepicker {
+  margin-top: 0px;
+}
+.datepicker.dropdown-menu {
+  font-size: 11px;
+}
+.datepicker.dropdown-menu {
+  font-size: 11px;
+}
+
+/* default styles */
 
 .menu {
   list-style: none;

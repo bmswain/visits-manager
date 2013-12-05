@@ -1,5 +1,75 @@
-<p>Full Ward List</p>
+<section class="full-list">
 
-<ul>
-  <li></li>
-</ul>
+    <button class="pull-right btn btn-primary" ng-click="addPerson()"><span class="glyphicon glyphicon-plus-sign"></span> Add Person</button>
+    <div class="input-group">
+      <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+      <input class="form-control search" type="text" ng-model="query" placeholder="Search">
+    </div>
+
+<!--   <nav class="navbar navbar-default" role="navigation">
+ -->    <!-- Brand and toggle get grouped for better mobile display -->
+<!--     <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">5th Ward List</a>
+    </div>
+ -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+<!--     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <form class="navbar-form navbar-left" role="search">
+        <div class="input-group">
+          <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+          <input class="form-control search" type="text" ng-model="query" placeholder="Search">
+        </div>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  <!--</nav> -->
+
+
+
+    <table class="table table-condensed table-bordered table-hover persons">
+      <thead>
+        <tr>
+          <th ng:repeat="(i,key) in notAlphabetical(head)" ng-init="th = head[key]" ng:class="selectedColumns(i)" ng:click="changeSorting(i)">{{th}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="person in persons | filter:query | orderBy:sort.column"
+          class="full-list {{person.gender}}" id="id{{person.id}}" data-id="id = {{person.id}}" ng-click="personDetailsClick(person.id)" ng-href="#/person/{{person.id}}">
+          <td>{{person.name}}</td>
+          <td>{{person.address}}</td>
+          <td>{{person.phone}}</td>
+          <td>{{person.active}}</td>
+          <td class="visits">
+            <ul>
+              <li ng-repeat="visits in person.visits">
+                <date>{{visits.date}}</date>
+                <p>{{visits.comments}}</date>
+              </li>
+            </ul>
+            {{person.visits.dates}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+</section>

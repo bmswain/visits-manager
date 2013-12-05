@@ -1,8 +1,157 @@
+<section class="person-details {{person.gender}}">
 
-<p>Person Details View</p>
+<!--   <a class="btn btn-default" href="#/list"><span class="glyphicon glyphicon-circle-arrow-left"></span> Return To List</a> -->
+
+  <ol class="breadcrumb">
+    <li><span class="glyphicon glyphicon-circle-arrow-left"></span><a href="#/list">Full List</a></li>
+    <li class="active">{{person.name}}</li>
+  </ol>
+  <div class="row person-details-section ">
+
+    <form role="form" class="form-horizontal person-details-form col-md-7">
+      <h2>Edit Person Details</h2>
+      <div class="form-group">
+        <div class="name input-group col-md-10">
+          <label class="input-group-addon">Name </label>
+          <input class="form-control" id="nameInput" type="text" value="{{person.name}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="phone input-group col-md-10">
+          <label class="input-group-addon">Phone </label>
+          <input class="form-control" id="phoneInput" type="text" value="{{person.phone}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="email input-group col-md-10">
+          <label class="input-group-addon">Email </label>
+          <input class="form-control" id="emailInput" type="text" value="{{person.email}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="address input-group col-md-10">
+          <label class="input-group-addon">Address </label>
+          <input class="form-control" id="addressInput" type="text" value="{{person.address}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="active input-group col-md-10">
+          <label>Active?
+            <input class="" name="activeYes" type="checkbox" ng-model="person.activeYes"> Yes
+            <input class="" name="activeNo" type="checkbox" ng-model="person.activeNo"> No
+          </label>
+        </div>
+      </div>
+      <div class="form-group" ng-show="{{person.gender === 'male'}}">
+        <div class="isProspectiveElder input-group col-md-10">
+          <label>
+            <input class="" id="isProspectiveElderCheckbox" type="checkbox" ng-model="person.isProspectiveElder"> Prospective elder.</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="atLastKnownAddress input-group col-md-10">
+          <label>At last known address?
+            <input class="" id="atLastKnownAddressYes" type="checkbox" ng-model="person.atLastKnownAddress"> Yes
+            <input class="" id="atLastKnownAddressNo" type="checkbox" ng-model="person.atLastKnownAddress"> No
+          </label>
+        </div>
+      </div>
 
 
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+      <div class="col-md-10 col-nopad">
+        <h2>Edit Visits</h2>
+        <table class="table table-condensed table-curved visits-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Comments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="visits in person.visits | filter:query | orderBy:sort.column"
+              class="" id="">
+              <td class="date">
+                  <div class="input-group date" data-date="{{visits.date}}" data-date-format="dd-mm-yyyy">
+                    <input class="form-control datepicker" size="16" type="text" name="dateInput" value="{{visits.date}}"  data-provide="datepicker">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                  </div>
+              </td>
+              <td class="comments"><textarea class="form-control" rows="4">{{visits.comments}}</textarea></td>
+            </tr>
+            <tr>
+              <td class="date">
+                <div class="input-group date" data-date="{{visits.date}}" data-date-format="dd-mm-yyyy">
+                  <input class="form-control datepicker" size="16" type="text" name="dateInput" value="{{visits.date}}" data-provide="datepicker">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </td>
+              <td class="comments"><textarea class="form-control" rows="4"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button class="btn btn-primary" ng-click="saveChanges()">Save Changes</button>
+
+    </form>
+
+
+
+
+    <form role="form" class="8-steps form-horizontal col-md-4 col-md-offset-1">
+      <h2>8 Steps</h2>
+
+      <div class="form-group">
+        <div class="notAtLastAddress input-group col-md-10">
+          <label>
+            <input class="" id="notAtLastAddressCheckbox" type="checkbox" ng-model="person.notAtLastAddress"> Dropped by, not at last known address.</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="sentLetter input-group col-md-10">
+          <label>
+            <input class="" id="sentLetterCheckbox" type="checkbox" ng-model="person.sentLetter"> Sent Letter.</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="called input-group col-md-10">
+          <label>
+            <input class="" id="calledCheckbox" type="checkbox" ng-model="person.called"> Called.</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="emailed input-group col-md-10">
+          <label>
+            <input class="" id="emailedCheckbox" type="checkbox" ng-model="person.emailed"> Emailed.</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="contactedKnownFamily input-group col-md-10">
+          <label>
+            <input class="" id="contactedKnownFamilyCheckbox" type="checkbox" ng-model="person.contactedKnownFamily"> Contacted known family.</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="contactedKnownFriends input-group col-md-10">
+          <label>
+            <input class="" id="contactedKnownFriendsCheckbox" type="checkbox" ng-model="person.contactedKnownFriends"> Contacted known friends.</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="contactedWardLeaders input-group col-md-10">
+          <label>
+            <input class="" id="contactedWardLeadersCheckbox" type="checkbox" ng-model="person.contactedWardLeaders"> Contacted ward leaders.</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="checkedSocialNetworks input-group col-md-10">
+          <label>
+            <input class="" id="checkedSocialNetworksCheckbox" type="checkbox" ng-model="person.checkedSocialNetworks"> Checked social networks.</label>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</section>
+
