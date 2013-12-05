@@ -54,7 +54,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="person in persons | filter:query | orderBy:sort.column"
-          class="full-list {{person.gender}}" id="id{{person.id}}" data-id="id = {{person.id}}" ng-click="personDetailsClick(person.id)" ng-href="#/person/{{person.id}}">
+          class="full-list {{person.gender}}" id="id{{person.id}}" ng-click="personDetailsClick(person.id)">
           <td>{{person.name}}</td>
           <td>{{person.address}}</td>
           <td>{{person.phone}}</td>
